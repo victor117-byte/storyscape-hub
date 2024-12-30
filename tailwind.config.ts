@@ -28,12 +28,21 @@ export default {
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
         primary: {
-          DEFAULT: "#6C63FF",
-          hover: "#5B52E5",
+          DEFAULT: "#2B7CD4", // Azul del logo
+          hover: "#1E5FA8",
+        },
+        secondary: {
+          DEFAULT: "#FF6B2C", // Naranja del fondo
+          hover: "#E55A1F",
         },
         content: {
           subtle: "#6B7280",
           DEFAULT: "#374151",
+        },
+        accent: {
+          purple: "#9B87F5",
+          blue: "#7CC2FF",
+          orange: "#FEC6A1",
         },
       },
       keyframes: {
