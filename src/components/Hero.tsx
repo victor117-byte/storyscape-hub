@@ -13,14 +13,14 @@ export const Hero = () => {
               Nueva Temporada Disponible
             </span>
             
-            <h1 className="text-4xl md:text-6xl font-bold text-gray-900 leading-tight">
-              Tecnología, Filosofía y
-              <span className="text-primary"> Aventuras</span>
+            <h1 className="text-4xl md:text-6xl font-bold leading-tight">
+              THE HIDDEN CODE
+              <span className="block text-primary">Descubre lo invisible</span>
             </h1>
             
             <p className="max-w-2xl mx-auto lg:mx-0 text-lg text-content-subtle">
-              Un espacio donde convergen las ideas, la tecnología y las historias personales.
-              Acompáñame en este viaje de descubrimiento y aprendizaje.
+              Un viaje a través de la tecnología, la filosofía y las historias que dan forma a nuestro mundo digital.
+              Únete a esta exploración de lo oculto en el código.
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
@@ -45,7 +45,7 @@ export const Hero = () => {
           <div className="flex-1 max-w-md">
             <img
               src="/podcast-logo.png"
-              alt="Podcast Host Illustration"
+              alt="The Hidden Code Podcast"
               className="w-full h-auto rounded-2xl shadow-2xl animate-fade-in"
             />
           </div>

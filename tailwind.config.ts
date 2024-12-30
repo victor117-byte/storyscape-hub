@@ -28,12 +28,12 @@ export default {
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
         primary: {
-          DEFAULT: "#2B7CD4", // Azul del logo
-          hover: "#1E5FA8",
+          DEFAULT: "#1EAEDB", // Azul brillante del logo
+          hover: "#0EA5E9",
         },
         secondary: {
-          DEFAULT: "#FF6B2C", // Naranja del fondo
-          hover: "#E55A1F",
+          DEFAULT: "#F97316", // Naranja vibrante
+          hover: "#EA580C",
         },
         content: {
           subtle: "#6B7280",
@@ -41,7 +41,7 @@ export default {
         },
         accent: {
           purple: "#9B87F5",
-          blue: "#7CC2FF",
+          blue: "#33C3F0",
           orange: "#FEC6A1",
         },
       },

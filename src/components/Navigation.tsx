@@ -20,7 +20,7 @@ export const Navigation = () => {
             <Link to="/" className="flex items-center space-x-2">
               <img src="/podcast-logo.png" alt="Logo" className="w-10 h-10 rounded" />
               <span className="text-xl font-bold tracking-tighter bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-                CREATOR
+                THE HIDDEN CODE
               </span>
             </Link>
           </div>
