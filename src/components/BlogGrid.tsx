@@ -15,9 +15,9 @@ const posts: Post[] = [
     id: 1,
     title: "The Future of Technology: A Personal Journey",
     excerpt: "Exploring how emerging technologies are shaping our daily lives and what it means for our future.",
-    date: "January 5, 2024",
+    date: "January 5, 2025",
     category: "Technology",
-    imageUrl: "/placeholder.svg",
+    imageUrl: "/No_disponible.svg",
   },
   {
     id: 2,

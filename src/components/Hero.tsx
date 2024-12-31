@@ -14,8 +14,7 @@ export const Hero = () => {
             </span>
             
             <h1 className="text-4xl md:text-6xl font-bold leading-tight text-gray-900 dark:text-white">
-              THE HIDDEN CODE
-              <span className="block text-primary dark:text-accent-blue">Descubre lo invisible</span>
+            El Lado Oculto del Algoritmo
             </h1>
             
             <div className="space-y-4">

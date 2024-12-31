@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 export const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [theme, setTheme] = useState<'light' | 'dark'>('light');
+  const [theme, setTheme] = useState<'light' | 'dark'>('dark');
 
   useEffect(() => {
     if (theme === 'dark') {
@@ -31,7 +31,7 @@ export const Navigation = () => {
         <div className="flex justify-between h-16">
           <div className="flex items-center">
             <Link to="/" className="flex items-center space-x-2">
-              <img src="/podcast-logo.png" alt="Logo" className="w-10 h-10 rounded" />
+              <img src="/logo_temporada_1.svg" alt="Logo" className="w-10 h-10 rounded" />
               <span className="text-xl font-bold tracking-tighter bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
                 THE HIDDEN CODE
               </span>
