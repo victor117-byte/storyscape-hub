@@ -28,11 +28,11 @@ export default {
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
         primary: {
-          DEFAULT: "#1EAEDB", // Azul brillante del logo
+          DEFAULT: "#1EAEDB",
           hover: "#0EA5E9",
         },
         secondary: {
-          DEFAULT: "#F97316", // Naranja vibrante
+          DEFAULT: "#F97316",
           hover: "#EA580C",
         },
         content: {

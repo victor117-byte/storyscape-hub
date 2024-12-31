@@ -1,9 +1,22 @@
-import { Menu, X, Headphones, BookOpen, User, Mail } from "lucide-react";
-import { useState } from "react";
+import { Menu, X, Headphones, BookOpen, User, Mail, Sun, Moon } from "lucide-react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
 export const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [theme, setTheme] = useState<'light' | 'dark'>('light');
+
+  useEffect(() => {
+    if (theme === 'dark') {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+  }, [theme]);
+
+  const toggleTheme = () => {
+    setTheme(theme === 'light' ? 'dark' : 'light');
+  };
 
   const navItems = [
     { name: "Podcast", path: "/podcast", icon: <Headphones className="w-4 h-4" /> },
@@ -13,7 +26,7 @@ export const Navigation = () => {
   ];
 
   return (
-    <nav className="fixed top-0 w-full bg-white/80 backdrop-blur-md z-50 border-b border-gray-100 dark:bg-gray-900/80 dark:border-gray-800">
+    <nav className="fixed top-0 w-full bg-white/80 backdrop-blur-md z-50 border-b border-gray-100 dark:bg-gray-900/80 dark:border-gray-800 transition-colors duration-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16">
           <div className="flex items-center">
@@ -36,9 +49,31 @@ export const Navigation = () => {
                 <span>{item.name}</span>
               </Link>
             ))}
+            <button
+              onClick={toggleTheme}
+              className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+              aria-label="Toggle theme"
+            >
+              {theme === 'light' ? (
+                <Moon className="w-5 h-5 text-gray-600 dark:text-gray-300" />
+              ) : (
+                <Sun className="w-5 h-5 text-gray-600 dark:text-gray-300" />
+              )}
+            </button>
           </div>
 
-          <div className="md:hidden flex items-center">
+          <div className="md:hidden flex items-center space-x-4">
+            <button
+              onClick={toggleTheme}
+              className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+              aria-label="Toggle theme"
+            >
+              {theme === 'light' ? (
+                <Moon className="w-5 h-5 text-gray-600 dark:text-gray-300" />
+              ) : (
+                <Sun className="w-5 h-5 text-gray-600 dark:text-gray-300" />
+              )}
+            </button>
             <button
               onClick={() => setIsOpen(!isOpen)}
               className="text-gray-600 hover:text-primary dark:text-gray-300 dark:hover:text-white transition-colors"
