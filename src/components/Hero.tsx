@@ -14,7 +14,7 @@ export const Hero = () => {
             </span>
             
             <h1 className="text-4xl md:text-6xl font-bold leading-tight">
-              THE HIDDEN CODE
+              EL CODIGO OCULTO
               <span className="block text-primary">Descubre lo invisible</span>
             </h1>
             
@@ -44,7 +44,7 @@ export const Hero = () => {
           
           <div className="flex-1 max-w-md">
             <img
-              src="/podcast-logo.png"
+              src="/logo_temporada_1.svg" 
               alt="The Hidden Code Podcast"
               className="w-full h-auto rounded-2xl shadow-2xl animate-fade-in"
             />
