@@ -45,16 +45,18 @@ export const BlogGrid = () => {
           key={post.id}
           className="group flex flex-col space-y-4 animate-fade-up bg-white/50 dark:bg-gray-800/50 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300"
         >
-          <Link 
-            to={`/blog/${post.id}`} 
-            className="relative aspect-[16/9] overflow-hidden"
-          >
-            <img
-              src={post.imageUrl}
-              alt={post.title}
-              className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-            />
-          </Link>
+          <div className="relative w-full pt-[56.25%]">
+            <Link 
+              to={`/blog/${post.id}`}
+              className="absolute inset-0"
+            >
+              <img
+                src={post.imageUrl}
+                alt={post.title}
+                className="absolute inset-0 w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+              />
+            </Link>
+          </div>
           <div className="space-y-3 p-6">
             <div className="flex items-center gap-3 text-sm">
               <span className="bg-accent-blue/10 dark:bg-accent-blue/20 text-accent-blue dark:text-accent-blue px-3 py-1 rounded-full font-medium">
