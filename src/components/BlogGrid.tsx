@@ -35,7 +35,6 @@ const posts: Post[] = [
     category: "Storytelling",
     imageUrl: "/placeholder.svg",
   },
-  // Add more posts as needed
 ];
 
 export const BlogGrid = () => {
@@ -44,31 +43,34 @@ export const BlogGrid = () => {
       {posts.map((post) => (
         <article
           key={post.id}
-          className="group flex flex-col space-y-3 animate-fade-up"
+          className="group flex flex-col space-y-4 animate-fade-up bg-white/50 dark:bg-gray-800/50 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300"
         >
-          <Link to={`/blog/${post.id}`} className="overflow-hidden rounded-lg">
+          <Link 
+            to={`/blog/${post.id}`} 
+            className="relative aspect-[16/9] overflow-hidden"
+          >
             <img
               src={post.imageUrl}
               alt={post.title}
-              className="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-105"
+              className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
             />
           </Link>
-          <div className="space-y-2">
-            <div className="flex items-center gap-2 text-sm text-gray-500">
-              <span className="bg-gray-100 px-2 py-1 rounded-full dark:bg-gray-800">
+          <div className="space-y-3 p-6">
+            <div className="flex items-center gap-3 text-sm">
+              <span className="bg-accent-blue/10 dark:bg-accent-blue/20 text-accent-blue dark:text-accent-blue px-3 py-1 rounded-full font-medium">
                 {post.category}
               </span>
-              <div className="flex items-center gap-1">
+              <div className="flex items-center gap-1 text-gray-600 dark:text-gray-400">
                 <CalendarDays className="w-4 h-4" />
                 {post.date}
               </div>
             </div>
             <Link to={`/blog/${post.id}`}>
-              <h2 className="text-xl font-semibold hover:text-primary transition-colors">
+              <h2 className="text-xl font-semibold text-gray-900 dark:text-white hover:text-primary dark:hover:text-accent-blue transition-colors line-clamp-2">
                 {post.title}
               </h2>
             </Link>
-            <p className="text-gray-600 dark:text-gray-400 line-clamp-2">
+            <p className="text-gray-600 dark:text-gray-300 line-clamp-2">
               {post.excerpt}
             </p>
           </div>
