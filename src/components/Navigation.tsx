@@ -1,85 +1,101 @@
+import { Menu, X, Headphones, BookOpen, User, Mail, Sun, Moon } from "lucide-react";
 import { useState, useEffect } from "react";
-import { Link, useLocation } from "react-router-dom";
-import { Menu, X } from "lucide-react";
-import { cn } from "@/lib/utils";
-import { Button } from "@/components/ui/button";
-import { useIsMobile } from "@/hooks/use-mobile";
+import { Link } from "react-router-dom";
 
 export const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const location = useLocation();
-  const isMobile = useIsMobile();
+  const [theme, setTheme] = useState<'light' | 'dark'>('dark');
 
   useEffect(() => {
-    setIsOpen(false);
-  }, [location.pathname]);
+    if (theme === 'dark') {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+  }, [theme]);
 
-  const links = [
-    { href: "/", label: "Inicio" },
-    { href: "/about", label: "Sobre mí" },
-    { href: "/blog", label: "Blog" },
-    { href: "/podcast", label: "Podcast" },
-    { href: "/contact", label: "Contacto" },
+  const toggleTheme = () => {
+    setTheme(theme === 'light' ? 'dark' : 'light');
+  };
+
+  const navItems = [
+    { name: "Podcast", path: "/podcast", icon: <Headphones className="w-4 h-4" /> },
+    { name: "Blog", path: "/blog", icon: <BookOpen className="w-4 h-4" /> },
+    { name: "Sobre Mí", path: "/about", icon: <User className="w-4 h-4" /> },
+    { name: "Contacto", path: "/contact", icon: <Mail className="w-4 h-4" /> },
   ];
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-white/80 dark:bg-gray-900/80 backdrop-blur-md border-b border-gray-200 dark:border-gray-800">
-      <div className="max-w-7xl mx-auto px-4">
-        <div className="flex items-center justify-between h-16">
-          <Link
-            to="/"
-            className="text-xl font-bold text-gray-900 dark:text-white hover:text-primary dark:hover:text-accent-blue transition-colors"
-          >
-            El Código Oculto
-          </Link>
-
-          <div className="hidden md:flex items-center space-x-8">
-            {links.map((link) => (
-              <Link
-                key={link.href}
-                to={link.href}
-                className={cn(
-                  "text-sm font-medium transition-colors hover:text-primary dark:hover:text-accent-blue",
-                  location.pathname === link.href
-                    ? "text-primary dark:text-accent-blue"
-                    : "text-gray-600 dark:text-gray-300"
-                )}
-              >
-                {link.label}
-              </Link>
-            ))}
+    <nav className="fixed top-0 w-full bg-white/80 backdrop-blur-md z-50 border-b border-gray-100 dark:bg-gray-900/80 dark:border-gray-800 transition-colors duration-200">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex justify-between h-16">
+          <div className="flex items-center">
+            <Link to="/" className="flex items-center space-x-2">
+              <img src="/logo_temporada_1.svg" alt="Logo" className="w-10 h-10 rounded" />
+              <span className="text-xl font-bold tracking-tighter bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+                THE HIDDEN CODE
+              </span>
+            </Link>
           </div>
 
-          <Button
-            variant="ghost"
-            size="icon"
-            className="md:hidden"
-            onClick={() => setIsOpen(!isOpen)}
-          >
-            {isOpen ? (
-              <X className="h-6 w-6" />
-            ) : (
-              <Menu className="h-6 w-6" />
-            )}
-          </Button>
+          <div className="hidden md:flex items-center space-x-8">
+            {navItems.map((item) => (
+              <Link
+                key={item.name}
+                to={item.path}
+                className="flex items-center space-x-1 text-gray-600 hover:text-primary dark:text-gray-300 dark:hover:text-white transition-colors"
+              >
+                {item.icon}
+                <span>{item.name}</span>
+              </Link>
+            ))}
+            <button
+              onClick={toggleTheme}
+              className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+              aria-label="Toggle theme"
+            >
+              {theme === 'light' ? (
+                <Moon className="w-5 h-5 text-gray-600 dark:text-gray-300" />
+              ) : (
+                <Sun className="w-5 h-5 text-gray-600 dark:text-gray-300" />
+              )}
+            </button>
+          </div>
+
+          <div className="md:hidden flex items-center space-x-4">
+            <button
+              onClick={toggleTheme}
+              className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+              aria-label="Toggle theme"
+            >
+              {theme === 'light' ? (
+                <Moon className="w-5 h-5 text-gray-600 dark:text-gray-300" />
+              ) : (
+                <Sun className="w-5 h-5 text-gray-600 dark:text-gray-300" />
+              )}
+            </button>
+            <button
+              onClick={() => setIsOpen(!isOpen)}
+              className="text-gray-600 hover:text-primary dark:text-gray-300 dark:hover:text-white transition-colors"
+            >
+              {isOpen ? <X size={24} /> : <Menu size={24} />}
+            </button>
+          </div>
         </div>
       </div>
 
-      {isOpen && isMobile && (
+      {isOpen && (
         <div className="md:hidden">
-          <div className="px-2 pt-2 pb-3 space-y-1 bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-800">
-            {links.map((link) => (
+          <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white dark:bg-gray-900 border-b border-gray-100 dark:border-gray-800">
+            {navItems.map((item) => (
               <Link
-                key={link.href}
-                to={link.href}
-                className={cn(
-                  "block px-3 py-2 rounded-md text-base font-medium transition-colors",
-                  location.pathname === link.href
-                    ? "text-primary dark:text-accent-blue bg-accent-blue/10"
-                    : "text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800"
-                )}
+                key={item.name}
+                to={item.path}
+                className="flex items-center space-x-2 px-3 py-2 text-gray-600 hover:text-primary dark:text-gray-300 dark:hover:text-white transition-colors"
+                onClick={() => setIsOpen(false)}
               >
-                {link.label}
+                {item.icon}
+                <span>{item.name}</span>
               </Link>
             ))}
           </div>
