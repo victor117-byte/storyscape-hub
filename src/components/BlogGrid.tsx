@@ -14,28 +14,28 @@ interface Post {
 const posts: Post[] = [
   {
     id: 1,
-    title: "The Future of Technology: A Personal Journey",
-    excerpt: "Exploring how emerging technologies are shaping our daily lives and what it means for our future.",
-    date: "January 5, 2025",
+    title: "La Paradoja del Código Oculto",
+    excerpt: "Un viaje personal a través de los laberintos de la programación moderna y cómo encontré patrones filosóficos en cada línea de código.",
+    date: "Marzo 15, 2024",
     category: "Technology",
-    imageUrl: "/No_disponible.svg",
+    imageUrl: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b",
   },
   {
     id: 2,
-    title: "Mindful Adventures: Finding Peace in Chaos",
-    excerpt: "Discovering the balance between digital life and mindful living through personal experiences.",
-    date: "January 4, 2024",
+    title: "Algoritmos y Filosofía: Un Puente Inesperado",
+    excerpt: "Descubriendo las sorprendentes conexiones entre el pensamiento computacional y las grandes preguntas de la filosofía.",
+    date: "Marzo 10, 2024",
     category: "Philosophy",
-    imageUrl: "/placeholder.svg",
+    imageUrl: "https://images.unsplash.com/photo-1518770660439-4636190af475",
   },
   {
     id: 3,
-    title: "The Art of Storytelling in the Digital Age",
-    excerpt: "How modern platforms are changing the way we share and consume stories.",
-    date: "January 3, 2024",
-    category: "Storytelling",
-    imageUrl: "/placeholder.svg",
-  },
+    title: "Nadando en el Mar de Datos",
+    excerpt: "Cómo mi pasión por la natación me enseñó valiosas lecciones sobre el flujo de información y la persistencia en la tecnología.",
+    date: "Marzo 5, 2024",
+    category: "Personal",
+    imageUrl: "https://images.unsplash.com/photo-1519389950473-47ba0277781c",
+  }
 ];
 
 interface BlogGridProps {
