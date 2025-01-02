@@ -38,7 +38,7 @@ const Podcast = () => {
         <div className="grid md:grid-cols-2 gap-8">
           <div className="glass-effect rounded-xl p-8 space-y-6">
             <img 
-              src="/podcast-logo.png" 
+              src="https://images.unsplash.com/photo-1488590528505-98d2b5aba04b"
               alt="Podcast Logo" 
               className="w-full h-64 object-cover rounded-lg shadow-lg" 
             />
