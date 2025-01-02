@@ -2,8 +2,11 @@ import { Navigation } from "@/components/Navigation";
 import { Hero } from "@/components/Hero";
 import { Categories } from "@/components/Categories";
 import { BlogGrid } from "@/components/BlogGrid";
+import { useState } from "react";
 
 const Index = () => {
+  const [selectedCategory, setSelectedCategory] = useState("All");
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-white via-accent-blue/5 to-accent-orange/5 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
       <Navigation />
@@ -17,8 +20,8 @@ const Index = () => {
             Explora nuestras historias más recientes sobre tecnología, filosofía y crecimiento personal.
           </p>
         </div>
-        <Categories />
-        <BlogGrid />
+        <Categories onCategoryChange={setSelectedCategory} />
+        <BlogGrid selectedCategory={selectedCategory} />
       </main>
     </div>
   );

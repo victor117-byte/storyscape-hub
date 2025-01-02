@@ -1,5 +1,6 @@
 import { CalendarDays } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useState } from "react";
 
 interface Post {
   id: number;
@@ -37,10 +38,18 @@ const posts: Post[] = [
   },
 ];
 
-export const BlogGrid = () => {
+interface BlogGridProps {
+  selectedCategory?: string;
+}
+
+export const BlogGrid = ({ selectedCategory = "All" }: BlogGridProps) => {
+  const filteredPosts = selectedCategory === "All" 
+    ? posts 
+    : posts.filter(post => post.category === selectedCategory);
+
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 px-4">
-      {posts.map((post) => (
+      {filteredPosts.map((post) => (
         <article
           key={post.id}
           className="group flex flex-col space-y-4 animate-fade-up bg-white/50 dark:bg-gray-800/50 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300"
