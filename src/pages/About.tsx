@@ -1,5 +1,5 @@
 import { Navigation } from "@/components/Navigation";
-import { BookOpen, Code, Swim, Mountain, GraduationCap } from "lucide-react";
+import { BookOpen, Code, Mountain, GraduationCap } from "lucide-react";
 
 const About = () => {
   return (
@@ -29,8 +29,8 @@ const About = () => {
               </p>
 
               <div className="flex items-center gap-4">
-                <Swim className="w-8 h-8 text-accent-blue" />
-                <h2 className="text-2xl font-semibold">Nadando entre Bits y Bytes</h2>
+                <BookOpen className="w-8 h-8 text-accent-blue" />
+                <h2 className="text-2xl font-semibold">El Arte de la Natación</h2>
               </div>
               <p>
                 La natación no es solo un deporte para mí; es una metáfora de la vida en tecnología. 
@@ -49,7 +49,7 @@ const About = () => {
               </p>
 
               <div className="flex items-center gap-4">
-                <BookOpen className="w-8 h-8 text-accent-purple" />
+                <GraduationCap className="w-8 h-8 text-primary" />
                 <h2 className="text-2xl font-semibold">El Eterno Estudiante</h2>
               </div>
               <p>
@@ -57,17 +57,6 @@ const About = () => {
                 un ángulo único. Cada día es una oportunidad para aprender algo nuevo, para 
                 conectar los puntos entre el pasado y el futuro, entre el pensamiento abstracto 
                 y el código concreto.
-              </p>
-
-              <div className="flex items-center gap-4">
-                <GraduationCap className="w-8 h-8 text-primary" />
-                <h2 className="text-2xl font-semibold">Un Viaje Continuo</h2>
-              </div>
-              <p>
-                Este viaje apenas comienza. Cada día trae nuevos desafíos, nuevas tecnologías 
-                para explorar y nuevas historias para contar. Te invito a unirte a esta aventura 
-                donde la tecnología se encuentra con la filosofía, donde cada línea de código 
-                cuenta una historia.
               </p>
             </div>
           </div>
