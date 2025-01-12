@@ -4,11 +4,50 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { toast } from "sonner";
+import emailjs from '@emailjs/browser';
+import { useState } from "react";
 
 const Contact = () => {
-  const handleSubmit = (e: React.FormEvent) => {
+  const [isLoading, setIsLoading] = useState(false);
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    message: ''
+  });
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    toast.success("Mensaje enviado con éxito. Me pondré en contacto contigo pronto.");
+    setIsLoading(true);
+
+    try {
+      await emailjs.send(
+        'service_6u7qd4s',
+        'template_5jt7i7m',
+        {
+          from_name: formData.name,
+          from_email: formData.email,
+          message: formData.message,
+          to_email: 'victor117.berrios@gmail.com'
+        },
+        'QZew5ZnaRN9kvRcsB'
+      );
+      
+      toast.success("Mensaje enviado con éxito. Me pondré en contacto contigo pronto.");
+      setFormData({ name: '', email: '', message: '' });
+    } catch (error) {
+      toast.error("Error al enviar el mensaje. Por favor, intenta nuevamente.");
+      console.error('Error:', error);
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
@@ -63,22 +102,38 @@ const Contact = () => {
             <div className="space-y-4">
               <div className="space-y-2">
                 <label className="text-sm font-medium dark:text-white">Nombre</label>
-                <Input placeholder="Tu nombre completo" className="bg-white/50 dark:bg-gray-800/50" />
+                <Input 
+                  name="name"
+                  value={formData.name}
+                  onChange={handleChange}
+                  placeholder="Tu nombre completo" 
+                  className="bg-white/50 dark:bg-gray-800/50" 
+                />
               </div>
               <div className="space-y-2">
                 <label className="text-sm font-medium dark:text-white">Email</label>
-                <Input placeholder="tu@email.com" type="email" className="bg-white/50 dark:bg-gray-800/50" />
+                <Input 
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  placeholder="tu@email.com" 
+                  type="email" 
+                  className="bg-white/50 dark:bg-gray-800/50" 
+                />
               </div>
               <div className="space-y-2">
                 <label className="text-sm font-medium dark:text-white">Mensaje</label>
                 <Textarea 
+                  name="message"
+                  value={formData.message}
+                  onChange={handleChange}
                   placeholder="Cuéntame sobre tu proyecto o idea..." 
                   className="min-h-[150px] bg-white/50 dark:bg-gray-800/50" 
                 />
               </div>
             </div>
-            <Button type="submit" className="w-full">
-              Enviar Mensaje
+            <Button type="submit" className="w-full" disabled={isLoading}>
+              {isLoading ? 'Enviando...' : 'Enviar Mensaje'}
               <Send className="w-4 h-4 ml-2" />
             </Button>
           </form>
