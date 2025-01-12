@@ -5,6 +5,7 @@ import { componentTagger } from "lovable-tagger";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
+  base: '/storyscape-hub/', // Añadimos la base URL que corresponde al nombre del repositorio
   server: {
     host: "::",
     port: 8080,
